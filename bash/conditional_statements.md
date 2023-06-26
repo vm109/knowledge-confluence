@@ -1,4 +1,4 @@
-## Bash Scripting: conditional statements
+## Bash Scripting: conditional statements by example
 bash script has following conditional statements
 
 - `if`
@@ -12,7 +12,7 @@ if [[ $val -eq 1 ]]; then
 fi 
 ```
 
-- `if elif`
+- `if elif else`
 ``` bash
 #!/bin/bash
 
@@ -27,7 +27,7 @@ else
 fi
 ```
 
-- `if`
+- `if else`
 ``` bash
 #!/bin/bash
 
