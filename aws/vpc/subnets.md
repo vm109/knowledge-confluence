@@ -16,6 +16,8 @@
 ```
 If we place a ec2 instance within this subnet we cannot reach the instance `yet`
 ```
+#### associating subnet to internet gateway
+<img src='./aws_subnet.png' height=400 width=500/>
 - create a gateway to connect VPC to internet [ similar to home network gateway ]
 - route tables allow a subnet to connect to internet gateway.
 - associate a subnet to internetgateway through route table to make it public subnet.
