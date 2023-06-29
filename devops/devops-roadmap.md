@@ -1,0 +1,25 @@
+## devops roadmap
+- aws
+  - architect associate
+  - security associate
+  - developer associate
+- networking and security  
+- docker
+- kubernetes
+- bash
+- golang
+- python
+- ci/cd
+  - gitops
+    - gitactions
+  - codepipeline
+  - codebuild  
+- infra as code
+  - terraform
+  - cloudformation
+- monitoring and observability
+  - prometheus
+  - grafana
+- logging
+  - splunk
+  - EKS  
