@@ -19,8 +19,8 @@
     ```
 
 #### When to use CMD and ENTRYPOINT? 
-- commands in `CMD`  which are mentioned in docker can be `overwritten`
-- where as command using `ENTRYPOINT` cannot be overwritten.
+- commands in `CMD`  which are mentioned in docker can be `overwritten` when running docker image.
+- where as command using `ENTRYPOINT` cannot be overwritten when we run docker image.
 - so `CMD` can be used to provide `starting arguments` for the docker run
 - where as `ENTRYPOINT` we can give a `fixed script` we want to run for docker
 - example
