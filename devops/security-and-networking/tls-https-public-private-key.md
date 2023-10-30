@@ -2,15 +2,23 @@
 
 ### TLS, SSL, HTTPS
 - TLS [ transport layer security ], SSL [ security sockets layer ] are security protocols to transfer data across network securly with encryption. 
-- HTTPS is secured HTTP protocol. In HTTPS a TLS certificate or public key is provided to the browser client by the server. 
+- HTTPS is secured HTTP protocol. In HTTPS a TLS `certificate or public key` is provided to the browser client by the server. 
 
 ### Assymetric Encryption
-- In Assymetric encryption, there are always key pairs. i.e public key and private key.
-- Public key is generally widely distributed and public key is widely used for encrypting data.
-- Private key is generally holded by the server or private entity [ i.e by a user in ssh context ].
-- Private key is generally used to decrypt the data which is encrypted by public key. 
+- In `Assymetric` encryption, there are always `key pairs`. i.e public key and private key.
+- `Public` key is generally `widely` distributed and public key is widely used for `encrypting` data.
+- `Private` key is generally holded by the server or `private entity` [ i.e by a user in ssh context ].
+- `Private` key is generally used to `decrypt` the data which is encrypted by public key. 
 - In SSH[ secure shell ]context public key and private key are generated and public key is distributed or copied to the server the user need to login and holds the private key. 
 - Using private key user will be able to SSH into the remote server.
+- some useful key gen commands, which creates public and private keys. 
+  ``` bash
+    ssh-keygen -t rsa -f <filename with path> -C "<any comment>"
+
+    ssh-keygen -t rsa -P "" # creates key pair with empty passphrase
+
+    ssh-keygen -t rsa -b 4096 # -b is used to mention how big the key size should be. here it is 4096 bits
+  ```
 
 ### Symmetric Encryption
 - Transferring huge amount of data through assymetric encryption is costly or inefficient. 
