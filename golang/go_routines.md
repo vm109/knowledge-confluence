@@ -1,0 +1,21 @@
+### go routines 
+- what is a go routine in golang?
+  - A goroutine is a light weight thread spun by go runtime to execute a peice of task concurrently
+- how do you create a goroutine?
+  - A goroutine can be created with the keyword `go` followed by function call. The function to which we want to delegate the concurrent work to.
+- difference between concurrency and parallelism in context of golang?
+  - difference between concurrency and parallelism is in concurrency multiple tasks are `managed` and achieve progress on them, while in parallelism the actual work is `executed in parallel/simultaneously`
+- how does go handle scheduling of goroutines?
+  - Golang multiplexes goroutines on to a very less number of actual OS threads.
+  - Question here: how do the goroutines use stack if they are multiplexed on a thread?  
+- What is a channel in go and how is it used by goroutines?
+  - A channel is a bridge or communication channel by which goroutines can communicate by sending and receiving data through channels.
+  - Questions: 
+    - what is a buffered channel and unbuffered channel and when are they used. 
+    - When to close a channel and can a goroutine receive data on the channel once it is closed. 
+- explain the concept of waitgroups in go
+  - WaitGroups are used to wait for the execution of collection of goroutines.
+- how to prevent goroutine leaks
+  - go routine leaks can be prevented by effective usage of waitgroups, channels and the keyword defer to signal WaitGroup.Done() meaning that goroutine execution is completed.
+- how can you coordinate execution of multiple goroutines?
+- what is fan-out and fan-in in goroutines? 
