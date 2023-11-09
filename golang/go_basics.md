@@ -1,14 +1,24 @@
 ### go basics 
 
-- What is the difference between thread and go-routine?
-  - goroutines are managed by go runtime. 
-  - goroutines are multiplexed on few threads. 
-  - goroutines are lightweight than threads. 
+- What is `context` in golang? 
+  - context package is used to carry request scoped values and variables across functions which are within the request boundary. 
+  - It is also used to carry cancellation signals after client stops the request or to signal hard deadlines like cancelling a request after timeout.
 
-- How are the goroutines lighter weight than go routines?
-  - goroutines creation, scheduling and synchronization are handled by golang runtime and not by the OS
-  - multiple goroutines can be multiplexed on to single OS threads.
-  - goroutines are spinned with smaller initial stack size. The stack size shrinks and grows dynamically as needed. this allows for efficient memory usage.   
-  - goroutines communication is through `channels` and do not need the locking and unlocking. 
+- What is `polymorphism` in golang?
+  - Polymorhism is multiple implementations of a sinle interface.
+  - In golang there is `interface` type.
+  - ```go 
+      type Animal interface {
+        sound() string
+      }
 
-- Give me an example of goroutines and where are they used.  
+      func (d *dog) sound() string {
+        return "woof"
+      }
+    ```
+- How is polymorphism achieved in golang? 
+  - There are interface types where user can define all the methods of the interface. 
+  - If a type is implementing those methods, then the type is said to be implicitly satisy that interface.
+  - 
+
+- What is embedding interface and embedding concrete types?
