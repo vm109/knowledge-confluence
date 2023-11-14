@@ -1,6 +1,7 @@
 ### go mod
-- what did you understand by go mod?
-- It is a package manager for go project 
+- what is the purpose of go.mod? 
+    - go mod maintains the relative path to the project 
+    - go mod maintains the dependecies and the versions of the dependencies within go mod.
 
 - some useful commands in go mod
 ``` bash
