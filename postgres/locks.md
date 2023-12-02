@@ -26,3 +26,20 @@
 4. Give some practical Examples for usage of these and how did you implement it in your code?
     - did you use pessimistic locking and how did you acquire lock and how did you release lock?
     - did you use optimistic locking and how did you determine there is a conflic between the versions while updating?
+
+5. Pessimistic Locking Example: 
+    - ```sql 
+            Update table_name
+            SET column1 = value1, column2 = value2
+            FROM (
+                SELECT column1, column2 
+                FROM table_name
+                WHERE where_condition
+                FOR UPDATE OF table_name
+            ) AS selected_rows
+            where table_name.id = select_rows.id
+        ```
+    - in pessimistic locking we use the following clauses 
+        - `FOR UPDATE`        
+        - `FOR UPDATE OF table_name`
+
