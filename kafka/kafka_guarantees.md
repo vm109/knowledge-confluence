@@ -61,3 +61,34 @@
     - consumer has to explicitly call `consumer.commit()` which sends back an acknowledgement to kafka that message is proccessed and commits the offset into `__consumers_offset`. 
 
 - What are the guarantees of kafka about ordering of messages in a partition ?
+    - kafka promises strict ordering at partition level. 
+    - when a message A is written to a partition and then message B, then consumers will see message A first and then message B
+    - kafka does not guarantee order across partitions within a topic.
+    - A message is written to a partition based on the partition key.
+    - A partition is a division within a topic where meesages are load balanced between the partitions based on the partition key. 
+    - This load balancing of messages among partitons of a topic will allow consumers to consume messages conccurently or parallely
+
+- What is the role of partition key in partitioning and sending messages in kafka?
+    - Producers in kafka can send messages exclusively with a `partition key`
+    - `Based` on the partition key messages are sent to a `particular` partition of the topic. 
+    - If producers chose not to send a partition key along with the message then, messages are load balanced among all the available partitions in a round robin fashion.
+
+- How many partitions a topic can be divided into ideally?
+
+- How to chose a partition key algorithm for sending messages to topics without skews?
+    - partitioning key decides to which partition of the topic a message is assigned/sent
+    - should consider if the messages have high cardinality [high possible values], else it will cause skews
+    - Also depends on the business requirement 
+    - most important goal is to allow as uniform distribution as possible
+    - if there is no strong need to set a partition key then we can chose to use the default round robin to distribute the messages uniformly among the partitions.
+    - our strategy is to chose org_id as the partitioning key.
+
+
+- How to identify any skews in partitions of a topic?
+    - monitor consumer lag/latency if there are skews some consumer may take more time to read out of the partition. 
+    - monitor partiton sizes, skewed partitions will have significant number of messages than other partitions.
+    - message through put - i.e how much time a message form producer is taking to reach consumer. 
+    - periodic audits.
+    - partition key distribution analysis. analyze distribution of keys among partitions, skewed keys may be concentrated in few partitions..
+    - `Tech Talk should we consider about skewed keys or partitions for any throughput`
+

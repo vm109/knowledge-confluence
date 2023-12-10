@@ -80,3 +80,4 @@
     - so when consumers maintain offset in `__consumers_offset` topic it is actually the offset of the topic.             
 
 
+- What is the role of `timestamp` in kafka?
