@@ -1,0 +1,15 @@
+### important topics of psql
+- DataTypes
+- Tables and Schemas
+- Indexes
+- Querying Data
+- Aggregation and Grouping 
+- Joins
+- Transactions and Concurrency
+- Views
+- Triggers
+- Stored Procedures and Functions
+- Json vs JsonB
+- Performance Optimization
+- High Availability & Replication
+- Spatial Data

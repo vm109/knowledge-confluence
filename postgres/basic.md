@@ -32,3 +32,23 @@
     -  ```sql
         insert into tablename(column_with_constraint, column1, column2) values(value1, value2, value3) on conflict (column_with_constraint) do update set column1=value1, column2=value2
     ```       
+
+- What is denormalization vs normalization?
+    - normalization: 
+        - reduces redundancy of data and organize data into seperate related tables
+        - reduce chances of update anomalies
+        - splits large tables into smaller related tables [ relations established with foreign keys ]
+        - normal forms like 1NF,2NF,3NF will guide through normalization process
+        - normalization reduces redundancy, improves data consistency and data integrity/relliability through foreign key and primary key contraints.
+        - normalization makes updating data easier 
+        - but by normalizing data it will need complex join queries to query data which is split into several related tables. This has affect on query performance
+
+    - denormalization: 
+        - All related data of a record/document is maintained in one place, even if it means repeated data.   
+        - improves query performance as all needed data is in one place and reduces need for joins
+        - increased redundant data is an issue
+        - but it will be difficult to update all the repeated data
+        - As in content-api the data is denormalized any update to content_elements are tracked through referent graph and update is applied to all the data.
+
+
+- What is the importance of timestamps in psql? And how did you maintain timestamp data between your application and psql?        
