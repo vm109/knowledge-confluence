@@ -85,8 +85,31 @@
         CREATE INDEX <index_name> on <table_name>(<column_name>)
       ```
 
+- How to see the query plan to check the difference of query before and after index?
+    - we can execute `EXPLAIN <sql>`
+    - this will show the sql query plan
+    
+- Scenario1: 
+    - I have created a index on a Array column
+    - by default it created a b-tree
+    - then changed to GIN index. 
+        - CREATE INDEX <index_name> ON <table_name> USING GIN (<column_name>)
+    - ran `Explain <sql with where conditio on indexed column>` 
+    - but the query plan is showing a sequntial scan 
+    - So sometimes even though we have created a index, query planner will chose to do sequential scanning if the `data distribution stats` are not enough for the query planner to use index.
+    - **can I force to use a index in a sql?**
+        - **No** index usage in a query cannot be forced. 
+        - But we can make sure that a column has an index. 
+        - And some times if the monitoring suggests that the index is slow, and fragmentation happenend on the index we can `REBUILD` index
+        - Or if we can run `ANALYZE` to update the `data distribution` stats. 
+        - these ways we can allow query optimizer to use the index.
+
 <!-- TODO -->
 - What are unique indexes? 
 - What are high selective indexes and how does that affect query optimization?
 - Why is index monitoring important and how can we do that in postgres?
+- What should we consider when we create a compound/composite index?
+    - compound/composite index is when we create a index on 2/more columns
+    - `create index <index_name> on <table_name> using <index_type> (<column_name1>, <column_name2>)`
+    - so when we create a composite key which is a primary key then we dont need to create a index seperately unless we need to change the index type that is from BTree to GIN/GIST etc
 
