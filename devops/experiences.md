@@ -1,0 +1,1 @@
+- deleted autoscaling caacity provider and stack stuck 
