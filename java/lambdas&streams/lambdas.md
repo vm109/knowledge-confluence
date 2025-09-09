@@ -20,3 +20,18 @@ Predicate<String> startsWithA = s -> s.startsWith("A");
 
 System.out.println(startsWithA.test("Apple")); //true
 ```
+    
+    - What is a functional interface? 
+       - a interface which has exactly one abstract function
+       - it can have other deafult functions, but only one abstract function 
+       - 
+```java
+@FunctionalInterface
+interface MyPrinter {
+    void print(String msg);
+}
+
+MyPrinter canonprinter = printMessage -> Systemt.out.println(printMessage);
+
+canonPrinter.print("hello world!I am printed by canon");
+```
