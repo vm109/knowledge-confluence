@@ -1,7 +1,7 @@
 ### Indexing
 
 - What is indexing in sql?
-    - Indexing helps to easily identify records when the record set is huge. 
+    - Indexing increases the efficiency of querying. 
     - indexing uses sorting algorithms to sort data based on a column or multiple columns
     - When we create a primary key then the data is indexed based on the key. 
         - how does this work if the key is composite key?
